@@ -73,7 +73,7 @@ function itemTemplate(item) {
               class="gallery-image"
               data-source=${item.original}
               src=${item.preview}
-              alt=${item.description}
+              alt="${item.description}"
             />
           </a>
         </li>`;
@@ -103,7 +103,7 @@ gallery.addEventListener('click', e => {
               <img
                 class="big-gallery-image"
                 src=${e.target.dataset.source}
-                alt=${e.target.alt}
+                alt="${e.target.alt}"
               />
             </a>
       </div>
@@ -112,6 +112,9 @@ gallery.addEventListener('click', e => {
       {
         onShow: (instance) => {
           document.addEventListener('keydown', closeModal);
+          document.addEventListener('click', e => {
+            e.preventDefault();
+          })
         },
     
         onClose: (instance) => {
@@ -125,7 +128,7 @@ gallery.addEventListener('click', e => {
   
   function closeModal(e) {
     e.preventDefault();
-    if (e.code === 'ESCAPE') {
+    if (e.code === 'Escape') {
       instance.close();
     }
   }
