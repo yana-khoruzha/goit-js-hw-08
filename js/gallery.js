@@ -97,7 +97,6 @@ gallery.addEventListener('click', e => {
 
   const instance = basicLightbox.create(
     `
-    <div class="backdrop">
       <div class="modal">
           <a class="gallery-link" href=${e.target.dataset.source}>
               <img
@@ -107,7 +106,6 @@ gallery.addEventListener('click', e => {
               />
             </a>
       </div>
-    </div>
 `,
       {
         onShow: (instance) => {
