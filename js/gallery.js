@@ -101,22 +101,15 @@ gallery.addEventListener('click', e => {
 
   const instance = basicLightbox.create(
     `
-      <div class="modal">
-          <a class="gallery-link" href=${e.target.dataset.source}>
-              <img
-                class="big-gallery-image"
-                src=${e.target.dataset.source}
-                alt="${e.target.alt}"
-              />
-            </a>
-      </div>
+     <img
+        class="big-gallery-image"
+        src=${e.target.dataset.source}
+        alt="${e.target.alt}"
+     />
 `,
       {
         onShow: (instance) => {
           document.addEventListener('keydown', closeModal);
-          // document.addEventListener('click', e => {
-          //   e.preventDefault();
-          // })
         },
     
         onClose: (instance) => {
@@ -124,9 +117,6 @@ gallery.addEventListener('click', e => {
         },
       }
     );
-  
-  console.log(e.target.dataset.source);
-  console.log(instance);
   
   function closeModal(e) {
     e.preventDefault();
