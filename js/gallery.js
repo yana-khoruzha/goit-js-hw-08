@@ -93,7 +93,11 @@ render();
 
 gallery.addEventListener('click', e => {
   e.preventDefault();
-  if (e.target === e.currentTarget) return;
+  if (
+    e.target.classList.contains('gallery') ||
+    e.target.classList.contains('gallery-item')
+  )
+    return;
 
   const instance = basicLightbox.create(
     `
@@ -110,9 +114,9 @@ gallery.addEventListener('click', e => {
       {
         onShow: (instance) => {
           document.addEventListener('keydown', closeModal);
-          document.addEventListener('click', e => {
-            e.preventDefault();
-          })
+          // document.addEventListener('click', e => {
+          //   e.preventDefault();
+          // })
         },
     
         onClose: (instance) => {
